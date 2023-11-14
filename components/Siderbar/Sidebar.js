@@ -26,6 +26,7 @@ import {
 } from "./styles";
 import { usePathname } from "next/navigation";
 
+import Image from "next/image";
 import Logo from "./../../public/logo.png";
 
 import {
@@ -57,7 +58,7 @@ export const Sidebar = ({ loggedUser }) => {
                     {sidebarOpen ? (
                         <SLabel>MyKomar</SLabel>
                     ) : (
-                        <SLogo src={Logo} />
+                        <Image src={Logo} height={48} />
                     )}
                 </LogoContainer>
                 <SDivider />

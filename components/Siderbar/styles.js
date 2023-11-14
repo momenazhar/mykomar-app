@@ -14,10 +14,6 @@ export const SSidebar = styled.div`
     flex: 0 0 auto;
 `;
 
-export const SLogo = styled.img`
-    height: 3rem;
-`;
-
 export const SLabel = styled.h1`
     text-align: center;
 `;
