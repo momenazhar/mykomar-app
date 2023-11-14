@@ -4,6 +4,7 @@ import { StyledComponentsRegistry } from "@/lib/registry";
 import { ThemeContext } from "@/theme/context";
 import { lightTheme, darkTheme } from "@/theme/colors";
 import { ThemeProvider } from "styled-components";
+import { GlobalStyle } from "@/theme/globalStyles";
 
 export function Providers({ children }) {
     const [theme, setTheme] = useState("light");
@@ -12,7 +13,10 @@ export function Providers({ children }) {
     return (
         <StyledComponentsRegistry>
             <ThemeContext.Provider value={{ setTheme, theme }}>
-                <ThemeProvider theme={themeStyle}>{children}</ThemeProvider>
+                <ThemeProvider theme={themeStyle}>
+                    <GlobalStyle />
+                    {children}
+                </ThemeProvider>
             </ThemeContext.Provider>
         </StyledComponentsRegistry>
     );

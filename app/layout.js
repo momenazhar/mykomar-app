@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import { Providers } from "./providers";
 import { Sidebar } from "@/components/Siderbar/Sidebar";
 import "./globals.css";
+import { SLayout, SMain, SMainLogin } from "./styles";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,13 +16,15 @@ export default function RootLayout({ children }) {
         <html lang="en">
             <body className={inter.className}>
                 <Providers>
-                    <Sidebar
-                        loggedUser={{
-                            fullName: "Jacob K",
-                            code: "WWW7/22",
-                        }}
-                    />
-                    {children}
+                    <SLayout>
+                        <Sidebar
+                            loggedUser={{
+                                fullName: "Jacob K",
+                                code: "F201139",
+                            }}
+                        />
+                        <SMain>{children}</SMain>
+                    </SLayout>
                 </Providers>
             </body>
         </html>

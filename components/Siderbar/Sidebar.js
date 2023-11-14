@@ -26,7 +26,7 @@ import {
 } from "./styles";
 import { usePathname } from "next/navigation";
 
-// import Logo from "./../../assets/logo.png";
+import Logo from "./../../public/logo.png";
 
 import {
     AiOutlineApartment,
@@ -57,8 +57,7 @@ export const Sidebar = ({ loggedUser }) => {
                     {sidebarOpen ? (
                         <SLabel>MyKomar</SLabel>
                     ) : (
-                        // <SLogo src={Logo} />
-                        <></>
+                        <SLogo src={Logo} />
                     )}
                 </LogoContainer>
                 <SDivider />
