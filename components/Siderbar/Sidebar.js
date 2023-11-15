@@ -1,9 +1,10 @@
 "use client";
-
+import Link from "next/link";
+import styled from "styled-components";
+import { v } from "@/theme/variables";
 import { useContext, useState } from "react";
 import {
     SDivider,
-    SLogo,
     LogoContainer,
     SLink,
     SLinkContainer,
@@ -42,7 +43,7 @@ export const Sidebar = ({ loggedUser }) => {
     const { setTheme, theme } = useContext(ThemeContext);
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const { pathname } = usePathname();
-
+    console.log(SLink);
     return (
         <SSidebar isOpen={sidebarOpen}>
             <>
@@ -64,7 +65,7 @@ export const Sidebar = ({ loggedUser }) => {
                 <SDivider />
                 {linksArray.map(({ icon, label, to }) => (
                     <SLinkContainer key={label} isActive={pathname === to}>
-                        <SLink
+                        {/* <SLink
                             to={to}
                             style={!sidebarOpen ? { width: `fit-content` } : {}}
                         >
@@ -74,7 +75,25 @@ export const Sidebar = ({ loggedUser }) => {
                                     <SLinkLabel>{label}</SLinkLabel>
                                 </>
                             )}
-                        </SLink>
+                        </SLink> */}
+                        <Link
+                            prefetch
+                            href={to}
+                            style={{
+                                width: sidebarOpen ? "auto" : "fit-content",
+                                textDecoration: "none",
+                            }}
+                        >
+                            <StyledLink>
+                                {" "}
+                                <SLinkIcon>{icon}</SLinkIcon>
+                                {sidebarOpen && (
+                                    <>
+                                        <SLinkLabel>{label}</SLinkLabel>
+                                    </>
+                                )}
+                            </StyledLink>
+                        </Link>
                     </SLinkContainer>
                 ))}
             </div>
@@ -137,6 +156,15 @@ export const Sidebar = ({ loggedUser }) => {
         </SSidebar>
     );
 };
+
+const StyledLink = styled.span`
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    padding: calc(${v.smSpacing} - 2px) 0;
+`;
 
 const linksArray = [
     {

@@ -1,6 +1,6 @@
-// import { Link } from "next/link";
 import styled from "styled-components";
 import { btnReset, v } from "@/theme/variables";
+import { Link } from "next/link";
 
 export const SSidebar = styled.div`
     width: ${({ isOpen }) => (!isOpen ? `auto` : v.sidebarWidth)};
@@ -63,14 +63,13 @@ export const SLinkContainer = styled.div`
     }
 `;
 
-export const SLink = styled.a`
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: inherit;
-    font-size: 16px;
-    padding: calc(${v.smSpacing} - 2px) 0;
-`;
+export const SLink = ({ to, children }) => {
+    return (
+        <Link href={to} passHref legacyBehavior>
+            <StyledLink>{children}</StyledLink>
+        </Link>
+    );
+};
 
 export const SLinkIcon = styled.div`
     padding: ${v.smSpacing} ${v.mdSpacing};
