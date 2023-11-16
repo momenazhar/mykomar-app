@@ -1,7 +1,7 @@
 export default function Home() {
     return (
         <main>
-            <h1>sc</h1>
+            <h1>SCHED</h1>
         </main>
     );
 }

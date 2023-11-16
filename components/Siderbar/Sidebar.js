@@ -43,7 +43,6 @@ export const Sidebar = ({ loggedUser }) => {
     const { setTheme, theme } = useContext(ThemeContext);
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const { pathname } = usePathname();
-    console.log(SLink);
     return (
         <SSidebar isOpen={sidebarOpen}>
             <>
@@ -59,7 +58,7 @@ export const Sidebar = ({ loggedUser }) => {
                     {sidebarOpen ? (
                         <SLabel>MyKomar</SLabel>
                     ) : (
-                        <Image src={Logo} height={48} />
+                        <Image src={Logo} height={48} alt="Komar Logo" />
                     )}
                 </LogoContainer>
                 <SDivider />
@@ -85,7 +84,6 @@ export const Sidebar = ({ loggedUser }) => {
                             }}
                         >
                             <StyledLink>
-                                {" "}
                                 <SLinkIcon>{icon}</SLinkIcon>
                                 {sidebarOpen && (
                                     <>
@@ -161,7 +159,6 @@ const StyledLink = styled.span`
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: black;
     font-size: 16px;
     padding: calc(${v.smSpacing} - 2px) 0;
 `;

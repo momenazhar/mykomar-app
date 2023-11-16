@@ -11,6 +11,9 @@ export const GlobalStyle = createGlobalStyle`
     body {
         background: ${({ theme }) => theme.bg2};
         color: ${({ theme }) => theme.text};
+        a {
+            color: ${({ theme }) => theme.text};
+        }
         font-family: 'Inter', sans-serif;
         letter-spacing: .1px;
     }
