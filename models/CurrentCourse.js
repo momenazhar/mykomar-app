@@ -1,5 +1,7 @@
 import { Schema } from "mongoose";
 
+const Time = { start: Number, end: Number, room: String };
+
 export const CurrentCourseSchema = new Schema({
     title: { type: String, required: true },
     section: { type: String, required: true },
@@ -18,5 +20,3 @@ export const CurrentCourseSchema = new Schema({
     },
     teacher: { type: String, required: true },
 });
-
-const Time = { start: Number, end: Number, room: String };

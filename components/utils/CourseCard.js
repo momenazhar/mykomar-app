@@ -1,3 +1,5 @@
+"use client";
+
 import styled from "styled-components";
 import CardDay from "./CardDay";
 
@@ -31,7 +33,7 @@ const CardBackground = styled.div`
     background-color: #a75050;
     color: white;
     border-radius: 1rem;
-    width: 35.91rem;
+    width: 35rem;
     overflow: hidden;
 `;
 const CardHeader = styled.div`
@@ -47,7 +49,7 @@ const CourseTitle = styled.h1`
     background-color: red;
     display: flex;
     align-items: center;
-    justify-content: center;
+    text-align: left;
     padding-inline: 1.5rem;
     height: 100%;
     width: 28rem;

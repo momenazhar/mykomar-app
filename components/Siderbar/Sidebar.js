@@ -1,4 +1,5 @@
 "use client";
+
 import Link from "next/link";
 import styled from "styled-components";
 import { v } from "@/theme/variables";
@@ -6,7 +7,6 @@ import { useContext, useState } from "react";
 import {
     SDivider,
     LogoContainer,
-    SLink,
     SLinkContainer,
     SLinkIcon,
     SLabel,
@@ -39,20 +39,18 @@ import { MdOutlineAnalytics } from "react-icons/md";
 import { BsPeople } from "react-icons/bs";
 import { ThemeContext } from "@/theme/context";
 
-export const Sidebar = ({ loggedUser }) => {
+export const Sidebar = ({ user }) => {
     const { setTheme, theme } = useContext(ThemeContext);
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const { pathname } = usePathname();
     return (
         <SSidebar isOpen={sidebarOpen}>
-            <>
-                <SSidebarButton
-                    isOpen={sidebarOpen}
-                    onClick={() => setSidebarOpen((p) => !p)}
-                >
-                    <AiOutlineLeft />
-                </SSidebarButton>
-            </>
+            <SSidebarButton
+                isOpen={sidebarOpen}
+                onClick={() => setSidebarOpen((p) => !p)}
+            >
+                <AiOutlineLeft />
+            </SSidebarButton>
             <div>
                 <LogoContainer>
                     {sidebarOpen ? (
@@ -64,17 +62,6 @@ export const Sidebar = ({ loggedUser }) => {
                 <SDivider />
                 {linksArray.map(({ icon, label, to }) => (
                     <SLinkContainer key={label} isActive={pathname === to}>
-                        {/* <SLink
-                            to={to}
-                            style={!sidebarOpen ? { width: `fit-content` } : {}}
-                        >
-                            <SLinkIcon>{icon}</SLinkIcon>
-                            {sidebarOpen && (
-                                <>
-                                    <SLinkLabel>{label}</SLinkLabel>
-                                </>
-                            )}
-                        </SLink> */}
                         <Link
                             prefetch
                             href={to}
@@ -86,9 +73,7 @@ export const Sidebar = ({ loggedUser }) => {
                             <StyledLink>
                                 <SLinkIcon>{icon}</SLinkIcon>
                                 {sidebarOpen && (
-                                    <>
-                                        <SLinkLabel>{label}</SLinkLabel>
-                                    </>
+                                    <SLinkLabel>{label}</SLinkLabel>
                                 )}
                             </StyledLink>
                         </Link>
@@ -115,39 +100,17 @@ export const Sidebar = ({ loggedUser }) => {
                         <>
                             <AccAvatar />
                             <AccInfo>
-                                <AccTitle>
-                                    {loggedUser.fullName
-                                        .split(" ")
-                                        .slice(0, 2)
-                                        .join(" ")}
-                                </AccTitle>
-
+                                <AccTitle>{user.fullName}</AccTitle>
                                 <AccSubtitleContainer>
-                                    <p>{loggedUser.code}</p>
+                                    <p>{user.code}</p>
                                     <AccDivider />
-                                    {(() => {
-                                        if (
-                                            loggedUser.department ===
-                                            "Computer Science"
-                                        ) {
-                                            return <p>CPS</p>;
-                                        } else if (
-                                            loggedUser.department ===
-                                            "Computer Engineering"
-                                        ) {
-                                            return <p>CPE</p>;
-                                        } else {
-                                            return <p>N/A</p>;
-                                        }
-                                    })()}
+                                    <p>{user.department}</p>
                                 </AccSubtitleContainer>
                             </AccInfo>
                             <AccButton />
                         </>
                     ) : (
-                        <>
-                            <AccAvatar />
-                        </>
+                        <AccAvatar />
                     )}
                 </AccountArea>
             </div>

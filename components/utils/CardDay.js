@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import styled from "styled-components";
 
@@ -5,9 +7,9 @@ const CardDay = ({ day, time }) => {
     return (
         <Day>
             <Header>
-                <TimeDiv>{time.tue.room}</TimeDiv>
-                <TimeDiv>{time.tue.start}</TimeDiv>
-                <TimeDiv>{time.tue.end}</TimeDiv>
+                <TimeDiv>{time.tuesday.room}</TimeDiv>
+                <TimeDiv>{time.tuesday.start}</TimeDiv>
+                <TimeDiv>{time.tuesday.end}</TimeDiv>
             </Header>
             <Footer>{day.toUpperCase()}</Footer>
         </Day>
