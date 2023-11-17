@@ -9,12 +9,12 @@ export const CurrentCourseSchema = new Schema({
     credits: { type: Number, required: true },
     times: {
         type: {
-            saturday: { type: Time, required: false },
-            sunday: { type: Time, required: false },
-            monday: { type: Time, required: false },
-            tuesday: { type: Time, required: false },
-            wednesday: { type: Time, required: false },
-            thursday: { type: Time, required: false },
+            sat: { type: Time, required: false },
+            sun: { type: Time, required: false },
+            mon: { type: Time, required: false },
+            tue: { type: Time, required: false },
+            wed: { type: Time, required: false },
+            thu: { type: Time, required: false },
         },
         required: true,
     },

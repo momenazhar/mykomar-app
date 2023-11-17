@@ -12,16 +12,16 @@ const CourseCard = ({ course }) => {
             </CardHeader>
             <CardBody>
                 <CardCalendar>
-                    <CardDay day="sat" time={course.times} />
-                    <CardDay day="sun" time={course.times} />
-                    <CardDay day="mon" time={course.times} />
-                    <CardDay day="tue" time={course.times} />
-                    <CardDay day="wed" time={course.times} />
-                    <CardDay day="thu" time={course.times} />
+                    <CardDay day="sat" time={course.times.sat} />
+                    <CardDay day="sun" time={course.times.sun} />
+                    <CardDay day="mon" time={course.times.mon} />
+                    <CardDay day="tue" time={course.times.tue} />
+                    <CardDay day="wed" time={course.times.wed} />
+                    <CardDay day="thu" time={course.times.thu} />
                 </CardCalendar>
                 <CourseInfo>
                     <p>{course.teacher}</p>
-                    <p>{course.credits}</p>
+                    <p>{course.credits} CH</p>
                     <p>{course.code}</p>
                 </CourseInfo>
             </CardBody>

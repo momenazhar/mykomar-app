@@ -13,7 +13,7 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
     const user = await getStudent();
-    const isLogged = false;
+    const isLogged = true;
 
     return (
         <html lang="en">
