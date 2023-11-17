@@ -20,7 +20,7 @@ import {
     IdCardHeaderTitle,
     // IdCardLogo,
     Value,
-} from "./info";
+} from "./styles";
 import Image from "next/image";
 
 // TODO: format date
