@@ -2,7 +2,13 @@
 
 import styled from "styled-components";
 
-export const MainContainer = styled.div`
+export const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+`;
+
+export const CardContainer = styled.div`
     background-color: #a0a0a0;
     border-radius: 20px;
     height: 5rem;

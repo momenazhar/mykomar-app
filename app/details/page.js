@@ -23,8 +23,6 @@ import {
 } from "./styles";
 import Image from "next/image";
 
-// TODO: format date
-
 export default async function Details() {
     const student = await getStudent();
 

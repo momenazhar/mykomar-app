@@ -100,7 +100,7 @@ export const Sidebar = ({ user }) => {
                         <>
                             <AccAvatar />
                             <AccInfo>
-                                <AccTitle>{user.fullName}</AccTitle>
+                                <AccTitle>{user.halfName}</AccTitle>
                                 <AccSubtitleContainer>
                                     <p>{user.code}</p>
                                     <AccDivider />

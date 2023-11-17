@@ -1,21 +1,31 @@
+import { getStudent } from "@/lib/student";
 import {
-    MainContainer,
+    Container,
+    CardContainer,
     CourseHeading,
     CourseTitle,
     CourseCode,
     CourseCredits,
 } from "./styles";
+import Divider from "@/components/utils/Divider";
 
-export default function RemainingCourse() {
+export default async function RemainingCourse() {
+    const user = await getStudent();
+
     return (
-        <MainContainer>
-            <CourseHeading>
-                <CourseTitle>
-                    Management of Medically Compromised Patients
-                </CourseTitle>
-                <CourseCode>CPSXXXX</CourseCode>
-            </CourseHeading>
-            <CourseCredits>3 CH</CourseCredits>
-        </MainContainer>
+        <>
+            <Divider title="Remaining Courses" />
+            <Container>
+                {user.remainingCourses.map((course, index) => (
+                    <CardContainer key={`${index}-${course.code}`}>
+                        <CourseHeading>
+                            <CourseTitle>{course.title}</CourseTitle>
+                            <CourseCode>{course.code}</CourseCode>
+                        </CourseHeading>
+                        <CourseCredits>{course.credits} CH</CourseCredits>
+                    </CardContainer>
+                ))}
+            </Container>
+        </>
     );
 }
