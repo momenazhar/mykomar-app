@@ -1,7 +1,7 @@
 import { getStudent } from "@/lib/student";
 import CourseCard from "@/components/utils/CourseCard";
 import Divider from "@/components/utils/Divider";
-import { CardsContainer } from "./container";
+import { CardsContainer } from "./styles";
 
 export default async function Classes() {
     const user = await getStudent();

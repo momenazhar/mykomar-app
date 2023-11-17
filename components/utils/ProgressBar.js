@@ -3,15 +3,32 @@
 import React from "react";
 import styled from "styled-components";
 
-const ProgressBar = () => {
+const ProgressBar = ({ progressType }) => {
+    let strokeColor;
+
+    if (progressType === "gpa") {
+        strokeColor = "red";
+    } else if (progressType === "courses") {
+        strokeColor = "blue";
+    } else if (progressType === "credits") {
+        strokeColor = "yellow";
+    } else {
+        strokeColor = "#ac2f2f";
+    }
+
+    const IndicationStyle = {
+        cx: "125",
+        cy: "125",
+        r: "72px",
+        fill: "transparent",
+        strokeWidth: "25px",
+        stroke: strokeColor,
+        strokeLinecap: "round",
+        strokeDasharray: "200px",
+        strokeDashoffset: "288.4px",
+    };
+
     return (
-        // <div>
-        //     <SVGIndicator>
-        //         <SVGIndicatorTrack />
-        //         <SVGIndicatorIndicationBG />
-        //         <SVGIndicatorIndication />
-        //     </SVGIndicator>
-        // </div>
         <MainContainer>
             <ProgressContainer>
                 <InnerTitle>40%</InnerTitle>
@@ -64,18 +81,6 @@ const IndicationBGStyle = {
     strokeWidth: "25px",
     stroke: "#ebebeb",
     strokeLinecap: "round",
-};
-
-const IndicationStyle = {
-    cx: "125",
-    cy: "125",
-    r: "72px",
-    fill: "transparent",
-    strokeWidth: "25px",
-    stroke: "#07c",
-    strokeLinecap: "round",
-    strokeDasharray: "200px",
-    strokeDashoffset: "288.4px",
 };
 
 // const SVGIndicator = styled.svg`

@@ -1,10 +1,11 @@
-"use client";
-import React from "react";
+import { getStudent } from "@/lib/student";
 import ProgressBar from "@/components/utils/ProgressBar";
 import Divider from "@/components/utils/Divider";
-import styled from "styled-components";
+import { StudentProgressContainer, Download } from "./styles";
 
-export default function Progress() {
+export default async function Progress() {
+    const user = await getStudent();
+
     return (
         <>
             <Divider title="Student Progress">
@@ -12,27 +13,11 @@ export default function Progress() {
                 <Download />
             </Divider>
             <StudentProgressContainer>
-                <ProgressBar />
-                <ProgressBar />
-                <ProgressBar />
+                <ProgressBar progressType="gpa" />
+                <ProgressBar progressType="courses" />
+                <ProgressBar progressType="credits" />
             </StudentProgressContainer>
-            <br />
-            <br />
             <Divider title="Class Details" />
         </>
     );
 }
-
-const StudentProgressContainer = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 10rem;
-`;
-
-const Download = styled.div`
-    height: 2.5rem;
-    width: 2.5rem;
-    background-color: red;
-    border-radius: 10px;
-`;
