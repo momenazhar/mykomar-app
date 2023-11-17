@@ -3,14 +3,14 @@
 import React from "react";
 import styled from "styled-components";
 
-const ProgressBar = ({ progressType }) => {
+const ProgressBar = ({ progressValue }) => {
     let strokeColor;
 
-    if (progressType === "gpa") {
+    if (progressValue.type === "gpa") {
         strokeColor = "red";
-    } else if (progressType === "courses") {
+    } else if (progressValue.type === "courses") {
         strokeColor = "blue";
-    } else if (progressType === "credits") {
+    } else if (progressValue.type === "credits") {
         strokeColor = "yellow";
     } else {
         strokeColor = "#ac2f2f";
@@ -38,8 +38,30 @@ const ProgressBar = ({ progressType }) => {
                     <circle style={IndicationStyle} />
                 </svg>
             </ProgressContainer>
-            <h2>Cumulative GPA</h2>
-            <h3>4.00 out of 4.00</h3>
+            {progressValue.type === "gpa" ? (
+                <h2>Cumulative GPA</h2>
+            ) : progressValue.type === "courses" ? (
+                <h2>Courses Completion</h2>
+            ) : progressValue.type === "credits" ? (
+                <h2>Credits Completion</h2>
+            ) : (
+                <h2>null</h2>
+            )}
+            {progressValue.type === "gpa" ? (
+                <h3>
+                    {progressValue.value} out of {progressValue.total}
+                </h3>
+            ) : progressValue.type === "courses" ? (
+                <h3>
+                    {progressValue.value} out of {progressValue.total}
+                </h3>
+            ) : progressValue.type === "credits" ? (
+                <h3>
+                    {progressValue.value} out of {progressValue.total}
+                </h3>
+            ) : (
+                <h3>null</h3>
+            )}
         </MainContainer>
     );
 };

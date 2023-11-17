@@ -13,9 +13,23 @@ export default async function Progress() {
                 <Download />
             </Divider>
             <StudentProgressContainer>
-                <ProgressBar progressType="gpa" />
-                <ProgressBar progressType="courses" />
-                <ProgressBar progressType="credits" />
+                <ProgressBar
+                    progressValue={{ type: "gpa", value: user.gpa, total: 4 }}
+                />
+                <ProgressBar
+                    progressValue={{
+                        type: "courses",
+                        value: user.courses,
+                        total: user.totalCourses,
+                    }}
+                />
+                <ProgressBar
+                    progressValue={{
+                        type: "credits",
+                        value: user.credits,
+                        total: user.totalCredits,
+                    }}
+                />
             </StudentProgressContainer>
             <Divider title="Class Details" />
         </>

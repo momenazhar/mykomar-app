@@ -18,23 +18,6 @@ export const StudentSchema = new Schema({
     remainingCourses: { type: [RemainingCourseSchema], required: true },
 });
 
-StudentSchema.virtual("fullName").get(function () {
-    return `${this.firstName} ${this.middleName} ${this.lastName}`;
-});
-
-StudentSchema.virtual("gpa").get(function () {
-    let credits = 0;
-    let total = 0;
-
-    this.finishedCourses.forEach((course) => {
-        credits += course.credits;
-        total += course.grade * course.credits;
-    });
-
-    if (credits === 0) return 0;
-    return total / credits;
-});
-
 export let Student =
     global.Student || mongoose.model("students", StudentSchema);
 global.Student = Student;
