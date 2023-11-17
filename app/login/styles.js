@@ -6,6 +6,7 @@ import background from "@/public/background.jpg";
 export const LogoStyle = {
     filter: "drop-shadow(0px 0px 25px rgba(0, 0, 0, 0.9))",
     marginBottom: "1rem",
+    userSelect: "none",
 };
 
 export const Container = styled.div`
