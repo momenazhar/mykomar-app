@@ -141,7 +141,14 @@ export default async function Details() {
                                 <Name>Account Security</Name>
                             </TableNameCell>
                             <TableValueCell>
-                                <Value>Visit Google Security page</Value>
+                                <Value>
+                                    <a
+                                        target="_blank"
+                                        href="https://myaccount.google.com/security"
+                                    >
+                                        Visit Google Security page
+                                    </a>
+                                </Value>
                             </TableValueCell>
                         </tr>
                     </tbody>
