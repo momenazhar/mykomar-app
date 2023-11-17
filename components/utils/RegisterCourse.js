@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const RegisterCourse = () => {
+const RegisterCourse = ({ course }) => {
     const [selected, setSelected] = useState(false);
     const selectHandler = () => {
         setSelected(!selected);
@@ -13,11 +13,9 @@ const RegisterCourse = () => {
             <CourseSelect onClick={selectHandler} selected={selected}>
                 {selected ? "On" : "Off"}
             </CourseSelect>
-            <CourseTitle>
-                Management of Medically Compromised Patients
-            </CourseTitle>
-            <CourseCredits>21</CourseCredits>
-            <CourseCredits>3 CH</CourseCredits>
+            <CourseTitle>{course.title}</CourseTitle>
+            <CourseCredits>40</CourseCredits>
+            <CourseCredits>{course.credits} CH</CourseCredits>
             <CourseTime>
                 <h3>MON 10:00 - 12:00</h3>
                 <h3>WED 10:00 - 12:00</h3>
