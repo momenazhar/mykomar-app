@@ -30,7 +30,7 @@ export const List = styled.div`
     border-radius: 10px;
 `;
 
-export const Enroll = styled.div`
+export const Enroll = styled.button`
     height: 2.5rem;
     background-color: red;
     border-radius: 10px;
@@ -40,4 +40,8 @@ export const Enroll = styled.div`
     justify-content: center;
     padding-inline: 1rem;
     font-weight: 600;
+    cursor: pointer;
 `;
+
+export const Close = styled.button``;
+export const Save = styled.button``;

@@ -2,9 +2,16 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const RegisterCourse = ({ course }) => {
+const RegisterCourse = ({ course, onSelect, onDeselect }) => {
     const [selected, setSelected] = useState(false);
+
     const selectHandler = () => {
+        if (selected) {
+            onDeselect();
+        } else {
+            onSelect();
+        }
+
         setSelected(!selected);
     };
 
