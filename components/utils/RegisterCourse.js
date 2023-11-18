@@ -14,13 +14,72 @@ const RegisterCourse = ({ course }) => {
                 {selected ? "On" : "Off"}
             </CourseSelect>
             <CourseTitle>{course.title}</CourseTitle>
-            <CourseCredits>40</CourseCredits>
+            <CourseCredits>{course.seats}</CourseCredits>
             <CourseCredits>{course.credits} CH</CourseCredits>
             <CourseTime>
-                <h3>MON 10:00 - 12:00</h3>
-                <h3>WED 10:00 - 12:00</h3>
+                <h3>
+                    {course.times.sat ? (
+                        `SAT ${course.times.sat.start} - ${course.times.sat.end}`
+                    ) : (
+                        <></>
+                    )}
+                </h3>
+                <h3>
+                    {course.times.sun ? (
+                        `SUN ${course.times.sun.start} - ${course.times.sun.end}`
+                    ) : (
+                        <></>
+                    )}
+                </h3>
+                <h3>
+                    {course.times.mon ? (
+                        `MON ${course.times.mon.start} - ${course.times.mon.end}`
+                    ) : (
+                        <></>
+                    )}
+                </h3>
+                <h3>
+                    {course.times.tue ? (
+                        `TUE ${course.times.tue.start} - ${course.times.tue.end}`
+                    ) : (
+                        <></>
+                    )}
+                </h3>
+                <h3>
+                    {course.times.wed ? (
+                        `WED ${course.times.wed.start} - ${course.times.wed.end}`
+                    ) : (
+                        <></>
+                    )}
+                </h3>
+                <h3>
+                    {course.times.thu ? (
+                        `THU ${course.times.thu.start} - ${course.times.thu.end}`
+                    ) : (
+                        <></>
+                    )}
+                </h3>
             </CourseTime>
-            <CourseRoom>B-B06</CourseRoom>
+            <RoomContainer>
+                <CourseRoom>
+                    {course.times.sat ? course.times.sat.room : <></>}
+                </CourseRoom>
+                <CourseRoom>
+                    {course.times.sun ? course.times.sun.room : <></>}
+                </CourseRoom>
+                <CourseRoom>
+                    {course.times.mon ? course.times.mon.room : <></>}
+                </CourseRoom>
+                <CourseRoom>
+                    {course.times.tue ? course.times.tue.room : <></>}
+                </CourseRoom>
+                <CourseRoom>
+                    {course.times.wed ? course.times.wed.room : <></>}
+                </CourseRoom>
+                <CourseRoom>
+                    {course.times.thu ? course.times.thu.room : <></>}
+                </CourseRoom>
+            </RoomContainer>
         </MainContainer>
     );
 };
@@ -69,9 +128,18 @@ const CourseTime = styled.div`
     margin-left: 1rem;
 `;
 
-const CourseRoom = styled.h2`
-    text-align: center;
+const RoomContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 8%;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    float: right;
+`;
+
+const CourseRoom = styled.h3`
+    text-align: center;
     margin-left: 1rem;
     margin-right: 1rem;
     float: right;
