@@ -148,14 +148,13 @@ export const AccDivider = styled.div`
     margin-inline: 0.5rem;
 `;
 
-export const AccAvatar = styled.div`
+export const AccAvatar = styled.img`
     width: 2.5rem;
     height: 2.5rem;
-    background-color: red;
     border-radius: 50px;
 `;
 
-export const AccButton = styled.div`
+export const AccButton = styled.button`
     width: 1.2rem;
     height: 1.2rem;
     background-color: red;

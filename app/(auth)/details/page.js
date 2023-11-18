@@ -1,6 +1,6 @@
 import Divider from "@/components/utils/Divider";
 import FilledLogo from "@/public/logoFilled.png";
-import { getStudent } from "@/lib/student";
+import { getAuthenticatedStudent } from "@/lib/student";
 import {
     InformationContainer,
     Table,
@@ -24,7 +24,7 @@ import {
 import Image from "next/image";
 
 export default async function Details() {
-    const student = await getStudent();
+    const student = await getAuthenticatedStudent();
 
     return (
         <>

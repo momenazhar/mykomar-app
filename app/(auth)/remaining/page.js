@@ -1,4 +1,4 @@
-import { getStudent } from "@/lib/student";
+import { getAuthenticatedStudent } from "@/lib/student";
 import {
     Container,
     CardContainer,
@@ -10,7 +10,7 @@ import {
 import Divider from "@/components/utils/Divider";
 
 export default async function RemainingCourse() {
-    const user = await getStudent();
+    const user = await getAuthenticatedStudent();
 
     return (
         <>

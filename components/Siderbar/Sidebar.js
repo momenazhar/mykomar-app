@@ -43,6 +43,9 @@ export const Sidebar = ({ user }) => {
     const { setTheme, theme } = useContext(ThemeContext);
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const { pathname } = usePathname();
+
+    console.log(user);
+
     return (
         <SSidebar isOpen={sidebarOpen}>
             <SSidebarButton
@@ -98,7 +101,14 @@ export const Sidebar = ({ user }) => {
                 <AccountArea>
                     {sidebarOpen ? (
                         <>
-                            <AccAvatar />
+                            <Image
+                                src={user.avatar}
+                                width={40}
+                                height={40}
+                                quality={100}
+                                alt="Avatar"
+                                style={{ borderRadius: "50%" }}
+                            />
                             <AccInfo>
                                 <AccTitle>{user.halfName}</AccTitle>
                                 <AccSubtitleContainer>
@@ -110,7 +120,14 @@ export const Sidebar = ({ user }) => {
                             <AccButton />
                         </>
                     ) : (
-                        <AccAvatar />
+                        <Image
+                            src={user.avatar}
+                            width={40}
+                            height={40}
+                            quality={100}
+                            alt="Avatar"
+                            style={{ borderRadius: "50%" }}
+                        />
                     )}
                 </AccountArea>
             </div>

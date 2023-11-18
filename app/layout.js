@@ -12,25 +12,11 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-    const user = await getStudent();
-    const isLogged = true;
-
     return (
         <html lang="en">
             <body className={inter.className}>
                 <Providers>
-                    <SLayout>
-                        {isLogged ? (
-                            <>
-                                <Sidebar user={user} />
-                                <SMain>{children}</SMain>
-                            </>
-                        ) : (
-                            <>
-                                <SMainLogin>{children}</SMainLogin>
-                            </>
-                        )}
-                    </SLayout>
+                    <SLayout>{children}</SLayout>
                 </Providers>
             </body>
         </html>

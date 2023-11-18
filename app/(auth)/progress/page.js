@@ -1,10 +1,10 @@
-import { getStudent } from "@/lib/student";
+import { getAuthenticatedStudent } from "@/lib/student";
 import ProgressBar from "@/components/utils/ProgressBar";
 import Divider from "@/components/utils/Divider";
 import { StudentProgressContainer, Download } from "./styles";
 
 export default async function Progress() {
-    const user = await getStudent();
+    const user = await getAuthenticatedStudent();
 
     return (
         <>
