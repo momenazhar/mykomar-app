@@ -18,6 +18,7 @@ export const IdCard = styled.div`
     justify-content: space-between;
     position: relative;
     overflow: hidden;
+    box-shadow: 0px 3px 10px 1px ${({ theme }) => theme.background200};
 `;
 
 export const IdCardHeader = styled.div`
@@ -32,6 +33,7 @@ export const IdCardBody = styled.div`
     display: flex;
     padding: 1rem;
     gap: 1rem;
+    color: ${({ theme }) => theme.dark200};
 `;
 
 export const IdCardFooter = styled.div`
@@ -50,13 +52,6 @@ export const IdCardHeaderTitle = styled.h2`
     color: white;
     font-size: 1.3rem;
     padding-left: 1rem;
-`;
-
-export const IdCardBodyImage = styled.div`
-    width: 5rem;
-    height: 5rem;
-    background-color: red;
-    border-radius: 1.3rem;
 `;
 
 export const IdCardBodyInfo = styled.div`
@@ -99,6 +94,16 @@ export const Name = styled.h2`
 
 export const Value = styled.h2`
     font-weight: 700;
+    a {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        svg {
+            height: 20px;
+            width: 20px;
+            stroke-width: 0.5px;
+        }
+    }
 `;
 
 export const TableValueCell = styled.td``;

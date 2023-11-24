@@ -1,8 +1,6 @@
 import { Inter } from "next/font/google";
 import { Providers } from "./providers";
-import { Sidebar } from "@/components/Siderbar/Sidebar";
-import { SLayout, SMain, SMainLogin } from "./styles";
-import { getStudent } from "@/lib/student";
+import { SLayout } from "./styles";
 
 const inter = Inter({ subsets: ["latin"] });
 

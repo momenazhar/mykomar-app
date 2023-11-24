@@ -161,8 +161,20 @@ export const AccAvatar = styled.img`
 `;
 
 export const AccButton = styled.button`
-    width: 1.2rem;
-    height: 1.2rem;
-    background-color: red;
     margin-left: auto;
+    cursor: pointer;
+    color: ${({ theme }) => theme.background500};
+    border-radius: 8px;
+    height: 2rem;
+    width: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    :hover {
+        outline: 2px solid ${({ theme }) => theme.background300};
+    }
 `;

@@ -10,7 +10,6 @@ import {
     IdCard,
     IdCardBody,
     IdCardBodyHeader,
-    IdCardBodyImage,
     IdCardBodyInfo,
     IdCardBodySubheader,
     IdCardBodySubtitle,
@@ -22,8 +21,9 @@ import {
     Value,
 } from "./styles";
 import Image from "next/image";
+import { BiLinkExternal } from "react-icons/bi";
 
-export default async function Details() {
+export default async function Details({}) {
     const student = await getAuthenticatedStudent();
 
     return (
@@ -90,7 +90,14 @@ export default async function Details() {
                         />
                     </IdCardHeader>
                     <IdCardBody>
-                        <IdCardBodyImage />
+                        <Image
+                            src={student.avatar}
+                            width={80}
+                            height={80}
+                            quality={100}
+                            alt="Avatar"
+                            style={{ borderRadius: "1.5rem" }}
+                        />
                         <IdCardBodyInfo>
                             <IdCardBodyHeader>
                                 {student.fullName}
@@ -103,9 +110,14 @@ export default async function Details() {
                                     {student.department}
                                 </IdCardBodySubtitle>
                             </IdCardBodySubheader>
-                            <IdCardBodySubtitle>
-                                {student.dob}
-                            </IdCardBodySubtitle>
+                            <IdCardBodySubheader>
+                                <IdCardBodySubtitle>
+                                    {student.dob}
+                                </IdCardBodySubtitle>
+                                <IdCardBodySubtitle>
+                                    {student.registered}
+                                </IdCardBodySubtitle>
+                            </IdCardBodySubheader>
                         </IdCardBodyInfo>
                     </IdCardBody>
                     <IdCardFooter>
@@ -147,6 +159,7 @@ export default async function Details() {
                                         href="https://myaccount.google.com/security"
                                     >
                                         Visit Google Security page
+                                        <BiLinkExternal />
                                     </a>
                                 </Value>
                             </TableValueCell>

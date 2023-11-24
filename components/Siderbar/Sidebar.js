@@ -22,14 +22,13 @@ import {
     AccTitle,
     AccSubtitleContainer,
     AccDivider,
-    LogoOpened,
     AccButton,
+    LogoOpened,
 } from "./styles";
 import { usePathname } from "next/navigation";
-
+import { IoLogOut } from "react-icons/io5";
 import Image from "next/image";
 import Logo from "./../../public/logoFilled.png";
-
 import { AiOutlineLeft, AiFillSchedule } from "react-icons/ai";
 import { RiFileList3Fill, RiAccountPinBoxFill } from "react-icons/ri";
 import { FaBook, FaUserGraduate } from "react-icons/fa";
@@ -125,7 +124,10 @@ export const Sidebar = ({ user }) => {
                                     <p>{user.department}</p>
                                 </AccSubtitleContainer>
                             </AccInfo>
-                            <AccButton />
+
+                            <AccButton>
+                                <IoLogOut />
+                            </AccButton>
                         </>
                     ) : (
                         <Image
