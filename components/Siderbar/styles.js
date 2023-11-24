@@ -74,15 +74,16 @@ export const SLink = ({ to, children }) => {
 export const SLinkIcon = styled.div`
     padding: ${v.smSpacing} ${v.mdSpacing};
     display: flex;
-
     svg {
         font-size: 20px;
+        fill: ${({ theme }) => theme.background900};
     }
 `;
 
 export const SLinkLabel = styled.span`
     display: block;
     flex: 1;
+    color: ${({ theme }) => theme.background900};
     margin-left: ${v.smSpacing};
 `;
 

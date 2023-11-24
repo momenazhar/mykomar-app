@@ -30,13 +30,10 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Logo from "./../../public/logoFilled.png";
 
-import {
-    AiOutlineApartment,
-    AiOutlineHome,
-    AiOutlineLeft,
-} from "react-icons/ai";
-import { MdOutlineAnalytics } from "react-icons/md";
-import { BsPeople } from "react-icons/bs";
+import { AiOutlineLeft, AiFillSchedule } from "react-icons/ai";
+import { RiFileList3Fill, RiAccountPinBoxFill } from "react-icons/ri";
+import { FaBook, FaUserGraduate } from "react-icons/fa";
+import { MdLibraryAddCheck } from "react-icons/md";
 import { ThemeContext } from "@/theme/context";
 
 export const Sidebar = ({ user }) => {
@@ -144,32 +141,32 @@ const StyledLink = styled.span`
 const linksArray = [
     {
         label: "My Classes",
-        icon: <AiOutlineHome />,
+        icon: <FaBook />,
         to: "/classes",
     },
     {
         label: "Student Progress",
-        icon: <MdOutlineAnalytics />,
+        icon: <FaUserGraduate />,
         to: "/progress",
     },
     {
         label: "Course Registration",
-        icon: <BsPeople />,
+        icon: <MdLibraryAddCheck />,
         to: "/registration",
     },
     {
         label: "Remaining Courses",
-        icon: <AiOutlineApartment />,
+        icon: <RiFileList3Fill />,
         to: "/remaining",
     },
     {
         label: "Class Schedule",
-        icon: <AiOutlineApartment />,
+        icon: <AiFillSchedule />,
         to: "/schedule",
     },
     {
         label: "Account Details",
-        icon: <AiOutlineApartment />,
+        icon: <RiAccountPinBoxFill />,
         to: "/details",
     },
 ];
