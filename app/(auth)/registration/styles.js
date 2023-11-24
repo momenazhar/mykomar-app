@@ -17,24 +17,37 @@ export const CourseList = styled.div`
 `;
 
 export const CourseDivider = styled.div`
-    background-color: #c5c5c5;
+    background-color: ${({ theme }) => theme.background200};
     width: 95%;
     height: 1px;
     margin-block: 0.5rem;
 `;
 
-export const List = styled.div`
+export const List = styled.button`
     height: 2.4rem;
     width: 2.4rem;
-    background-color: red;
+    background-color: ${({ theme }) => theme.accent500};
+    outline: 3px solid ${({ theme }) => theme.accent600};
+    outline-offset: -3px;
     border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    svg {
+        color: ${({ theme }) => theme.light50};
+        stroke-width: 1.5px;
+    }
 `;
 
 export const Enroll = styled.button`
     height: 2.4rem;
-    background-color: red;
+    background-color: ${({ theme }) => theme.secondary500};
+    outline: 3px solid ${({ theme }) => theme.secondary600};
+    outline-offset: -3px;
+    color: ${({ theme }) => theme.light50};
     border-radius: 10px;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     display: flex;
     align-items: center;
     justify-content: center;

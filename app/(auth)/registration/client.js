@@ -14,6 +14,7 @@ import {
     Close,
     Save,
 } from "./styles";
+import { BsListNested } from "react-icons/bs";
 
 export function RegistrationPage({ remainingCourses }) {
     const [selected, setSelected] = useState([]);
@@ -24,14 +25,16 @@ export function RegistrationPage({ remainingCourses }) {
             <Divider title="Eligible Courses">
                 <Modal isOpen={isOpen} setOpen={setOpen}>
                     <Modal.Trigger asChild>
-                        <List onClick={() => setOpen(true)} />
+                        <List onClick={() => setOpen(true)}>
+                            <BsListNested />
+                        </List>
                     </Modal.Trigger>
                     <Modal.Portal>
                         <Modal.Overlay />
                         <Modal.Content>
                             <Modal.Title>Wishlist</Modal.Title>
                             <Modal.Description>
-                                You will be enrolled in the following courses:
+                                Your selected courses are:
                             </Modal.Description>
                             <div>
                                 {selected.map((course, index) => (
@@ -52,11 +55,6 @@ export function RegistrationPage({ remainingCourses }) {
                                     <Close onClick={() => setOpen(false)}>
                                         Close
                                     </Close>
-                                </Modal.Close>
-                                <Modal.Close asChild>
-                                    <Save onClick={() => setOpen(false)}>
-                                        Save Courses
-                                    </Save>
                                 </Modal.Close>
                             </div>
                         </Modal.Content>

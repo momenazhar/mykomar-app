@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import styled from "styled-components";
+import { FaCheck } from "react-icons/fa";
 
 const RegisterCourse = ({ course, onSelect, onDeselect }) => {
     const [selected, setSelected] = useState(false);
@@ -18,7 +19,7 @@ const RegisterCourse = ({ course, onSelect, onDeselect }) => {
     return (
         <MainContainer>
             <CourseSelect onClick={selectHandler} selected={selected}>
-                {selected ? "On" : "Off"}
+                {selected ? <FaCheck /> : <></>}
             </CourseSelect>
             <CourseTitle>{course.title}</CourseTitle>
             <CourseCredits>{course.seats}</CourseCredits>
@@ -92,20 +93,28 @@ const RegisterCourse = ({ course, onSelect, onDeselect }) => {
 };
 
 const MainContainer = styled.div`
-    background-color: #a0a0a0;
+    background-color: ${({ theme }) => theme.background100};
     border-radius: 20px;
     height: 5rem;
     display: flex;
     align-items: center;
     padding: 1rem;
     width: 100%;
+    box-shadow: 0px 0px 10px 1px ${({ theme }) => theme.background200};
 `;
 
 const CourseSelect = styled.div`
     height: 3rem;
     width: 3rem;
-    background-color: ${(props) => (props.selected ? "#39369F" : "#dddddd")};
-    border: solid 4px #7a7a7a;
+    background-color: ${(props) =>
+        props.selected
+            ? ({ theme }) => theme.primary500
+            : ({ theme }) => theme.background200};
+    border: solid 4px
+        ${(props) =>
+            props.selected
+                ? ({ theme }) => theme.primary600
+                : ({ theme }) => theme.background200};
     border-radius: 10px;
     float: left;
     cursor: pointer;
@@ -113,6 +122,19 @@ const CourseSelect = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: 0.2s;
+    svg {
+        fill: ${({ theme }) => theme.light100};
+        height: 10rem;
+        transition: 0.2s;
+    }
+    :hover {
+        border-radius: 1rem;
+        svg {
+            transition: 0.2s;
+            transform: scale(130%);
+        }
+    }
 `;
 
 const CourseTitle = styled.h2`

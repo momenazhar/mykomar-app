@@ -16,13 +16,14 @@ const RegisterHeader = () => {
 };
 
 const MainContainer = styled.div`
-    background-color: #a0a0a0;
+    background-color: ${({ theme }) => theme.background200};
     border-radius: 20px;
     height: 3rem;
     display: flex;
     align-items: center;
     padding: 1rem;
     width: 100%;
+    box-shadow: 0px 0px 10px 1px ${({ theme }) => theme.background200};
 `;
 
 const CourseSelect = styled.div`

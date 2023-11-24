@@ -36,7 +36,7 @@ export const SSidebarButton = styled.button`
     ${btnReset};
     position: absolute;
     top: 42px;
-    right: ${({ isOpen }) => (isOpen ? `-16px` : `-15px`)};
+    right: -16px;
     width: 32px;
     height: 32px;
     border-radius: 50%;
