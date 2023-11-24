@@ -24,14 +24,14 @@ export const CourseDivider = styled.div`
 `;
 
 export const List = styled.div`
-    height: 2.5rem;
-    width: 2.5rem;
+    height: 2.4rem;
+    width: 2.4rem;
     background-color: red;
     border-radius: 10px;
 `;
 
 export const Enroll = styled.button`
-    height: 2.5rem;
+    height: 2.4rem;
     background-color: red;
     border-radius: 10px;
     font-size: 1.6rem;

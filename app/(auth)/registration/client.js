@@ -22,7 +22,46 @@ export function RegistrationPage({ remainingCourses }) {
     return (
         <>
             <Divider title="Eligible Courses">
-                <List />
+                <Modal isOpen={isOpen} setOpen={setOpen}>
+                    <Modal.Trigger asChild>
+                        <List onClick={() => setOpen(true)} />
+                    </Modal.Trigger>
+                    <Modal.Portal>
+                        <Modal.Overlay />
+                        <Modal.Content>
+                            <Modal.Title>Wishlist</Modal.Title>
+                            <Modal.Description>
+                                You will be enrolled in the following courses:
+                            </Modal.Description>
+                            <div>
+                                {selected.map((course, index) => (
+                                    <div key={`${index}-${course.code}`}>
+                                        <p>
+                                            {course.code} {course.title}
+                                        </p>
+                                    </div>
+                                ))}
+                            </div>
+                            <div
+                                style={{
+                                    display: "flex",
+                                    flexDirection: "row",
+                                }}
+                            >
+                                <Modal.Close asChild>
+                                    <Close onClick={() => setOpen(false)}>
+                                        Close
+                                    </Close>
+                                </Modal.Close>
+                                <Modal.Close asChild>
+                                    <Save onClick={() => setOpen(false)}>
+                                        Save Courses
+                                    </Save>
+                                </Modal.Close>
+                            </div>
+                        </Modal.Content>
+                    </Modal.Portal>
+                </Modal>
                 <Modal isOpen={isOpen} setOpen={setOpen}>
                     <Modal.Trigger asChild>
                         <Enroll onClick={() => setOpen(true)}>Enroll</Enroll>
