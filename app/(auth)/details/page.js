@@ -17,7 +17,6 @@ import {
     IdCardFooterText,
     IdCardHeader,
     IdCardHeaderTitle,
-    // IdCardLogo,
     Value,
 } from "./styles";
 import Image from "next/image";

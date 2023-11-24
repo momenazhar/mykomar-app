@@ -1,5 +1,4 @@
 import { signIn } from "@/lib/auth";
-import { redirect } from "next/navigation";
 import { Button, Icon } from "./styles";
 
 export function SignIn() {

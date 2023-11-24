@@ -29,7 +29,7 @@ export const LogoContainer = styled.div`
 export const LogoOpened = styled.div`
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.8rem;
 `;
 
 export const SSidebarButton = styled.button`
@@ -110,7 +110,6 @@ export const SThemeToggler = styled.button`
     height: 20px;
     border-radius: 10px;
     background: ${({ theme }) => theme.background200};
-
     position: relative;
 `;
 
@@ -150,7 +149,7 @@ export const AccSubtitleContainer = styled.div`
 export const AccDivider = styled.div`
     height: 0.8rem;
     width: 0.1rem;
-    background-color: gray;
+    background-color: ${({ theme }) => theme.background500};
     margin-inline: 0.5rem;
 `;
 
