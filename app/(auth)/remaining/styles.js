@@ -9,7 +9,7 @@ export const Container = styled.div`
 `;
 
 export const CardContainer = styled.div`
-    background-color: #a0a0a0;
+    background-color: ${({ theme }) => theme.background100};
     border-radius: 20px;
     height: 5rem;
     display: flex;
@@ -17,6 +17,7 @@ export const CardContainer = styled.div`
     justify-content: space-between;
     padding: 1rem 2rem;
     width: 100%;
+    box-shadow: 0px 0px 10px 1px ${({ theme }) => theme.background200};
 `;
 
 export const CourseHeading = styled.div`
@@ -31,6 +32,6 @@ export const CourseCode = styled.h3`
 `;
 
 export const CourseCredits = styled.h2`
-    width: 8%;
+    width: 30%;
     text-align: right;
 `;
