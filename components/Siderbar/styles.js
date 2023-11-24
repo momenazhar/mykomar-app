@@ -26,6 +26,12 @@ export const LogoContainer = styled.div`
     user-select: none;
 `;
 
+export const LogoOpened = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+`;
+
 export const SSidebarButton = styled.button`
     ${btnReset};
     position: absolute;

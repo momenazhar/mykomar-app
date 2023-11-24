@@ -22,7 +22,7 @@ import {
     AccTitle,
     AccSubtitleContainer,
     AccDivider,
-    AccAvatar,
+    LogoOpened,
     AccButton,
 } from "./styles";
 import { usePathname } from "next/navigation";
@@ -38,7 +38,7 @@ import { ThemeContext } from "@/theme/context";
 
 export const Sidebar = ({ user }) => {
     const { setTheme, theme } = useContext(ThemeContext);
-    const [sidebarOpen, setSidebarOpen] = useState(false);
+    const [sidebarOpen, setSidebarOpen] = useState(true);
     const { pathname } = usePathname();
 
     return (
@@ -52,9 +52,22 @@ export const Sidebar = ({ user }) => {
             <div>
                 <LogoContainer>
                     {sidebarOpen ? (
-                        <SLabel>MyKomar</SLabel>
+                        <LogoOpened>
+                            <Image
+                                quality={100}
+                                src={Logo}
+                                height={32}
+                                alt="Komar Logo"
+                            />
+                            <SLabel>MyKomar</SLabel>
+                        </LogoOpened>
                     ) : (
-                        <Image src={Logo} height={48} alt="Komar Logo" />
+                        <Image
+                            quality={100}
+                            src={Logo}
+                            height={48}
+                            alt="Komar Logo"
+                        />
                     )}
                 </LogoContainer>
                 <SDivider />
