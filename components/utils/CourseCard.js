@@ -56,6 +56,7 @@ const CourseTitle = styled.h1`
     height: 100%;
     width: 28rem;
     font-size: 1.7rem;
+    filter: drop-shadow(0px 2px 3px ${({ theme }) => theme.dark200}CC);
 `;
 const CourseSection = styled.h1`
     background-color: ${({ theme }) => theme.primary400};
@@ -66,6 +67,7 @@ const CourseSection = styled.h1`
     padding-inline: 1.5rem;
     border-radius: 0 1rem 0 1rem;
     height: 100%;
+    text-shadow: 0px 2px 3px ${({ theme }) => theme.dark100}80;
 `;
 
 const CardBody = styled.div`

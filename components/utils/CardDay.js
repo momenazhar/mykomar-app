@@ -1,32 +1,62 @@
 "use client";
 
 import styled from "styled-components";
+import { TbBookOff } from "react-icons/tb";
 
 const CardDay = ({ day, time }) => {
     return (
-        <Day>
-            <Header>
-                {time ? (
-                    <>
-                        <TimeDiv>{time.room}</TimeDiv>
-                        <TimeDiv>{time.start}</TimeDiv>
-                        <TimeDiv>{time.end}</TimeDiv>
-                    </>
-                ) : (
-                    <p>NULL</p>
-                )}
-            </Header>
-            <Footer>{day.toUpperCase()}</Footer>
-        </Day>
+        <>
+            {time ? (
+                <AvailableDay>
+                    <Header>
+                        {time ? (
+                            <>
+                                <TimeDiv>{time.room}</TimeDiv>
+                                <TimeDiv>{time.start}</TimeDiv>
+                                <TimeDiv>{time.end}</TimeDiv>
+                            </>
+                        ) : (
+                            <TbBookOff />
+                        )}
+                    </Header>
+                    <Footer>{day.toUpperCase()}</Footer>
+                </AvailableDay>
+            ) : (
+                <UnvailableDay>
+                    <Header>
+                        {time ? (
+                            <>
+                                <TimeDiv>{time.room}</TimeDiv>
+                                <TimeDiv>{time.start}</TimeDiv>
+                                <TimeDiv>{time.end}</TimeDiv>
+                            </>
+                        ) : (
+                            <TbBookOff />
+                        )}
+                    </Header>
+                    <Footer>{day.toUpperCase()}</Footer>
+                </UnvailableDay>
+            )}{" "}
+        </>
     );
 };
 
-const Day = styled.div`
+const AvailableDay = styled.div`
     width: 3.5rem;
     outline: 2px solid ${({ theme }) => theme.background200};
     border-radius: 0.5rem;
     overflow: hidden;
+    box-shadow: 0px 2px 10px 1px ${({ theme }) => theme.background200};
 `;
+
+const UnvailableDay = styled.div`
+    width: 3.5rem;
+    outline: 2px solid ${({ theme }) => theme.background200};
+    border-radius: 0.5rem;
+    overflow: hidden;
+    opacity: 50%;
+`;
+
 const Header = styled.div`
     background-color: ${({ theme }) => theme.background200};
     display: flex;
@@ -37,6 +67,10 @@ const Header = styled.div`
     align-items: center;
     font-size: 0.9rem;
     font-weight: 600;
+    svg {
+        height: 32px;
+        width: 32px;
+    }
 `;
 
 const TimeDiv = styled.div``;
