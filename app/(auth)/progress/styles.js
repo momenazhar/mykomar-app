@@ -12,10 +12,22 @@ export const StudentProgressContainer = styled.div`
     gap: 10%;
 `;
 
-export const Download = styled.div`
+export const Download = styled.button`
     height: 2.4rem;
     width: 2.4rem;
-    margin: 0;
-    background-color: red;
+    background-color: ${({ theme }) => theme.primary500};
+    outline: 3px solid ${({ theme }) => theme.primary600};
+    outline-offset: -3px;
+    color: ${({ theme }) => theme.light50};
     border-radius: 10px;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-inline: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    svg {
+    }
 `;

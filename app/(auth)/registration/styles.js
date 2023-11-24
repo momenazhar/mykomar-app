@@ -34,6 +34,7 @@ export const List = styled.button`
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    padding: 0;
     svg {
         color: ${({ theme }) => theme.light50};
         stroke-width: 1.5px;
@@ -42,6 +43,7 @@ export const List = styled.button`
 
 export const Enroll = styled.button`
     height: 2.4rem;
+    min-width: 2.4rem;
     background-color: ${({ theme }) => theme.secondary500};
     outline: 3px solid ${({ theme }) => theme.secondary600};
     outline-offset: -3px;
