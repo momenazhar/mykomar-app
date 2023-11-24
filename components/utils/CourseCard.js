@@ -30,23 +30,25 @@ const CourseCard = ({ course }) => {
 };
 
 const CardBackground = styled.div`
-    background-color: #a75050;
-    color: white;
+    background-color: ${({ theme }) => theme.background100};
+    color: ${({ theme }) => theme.text950};
     border-radius: 1rem;
     width: 35rem;
     overflow: hidden;
+    box-shadow: 0px 0px 10px 1px ${({ theme }) => theme.background200};
 `;
 const CardHeader = styled.div`
+    background-color: ${({ theme }) => theme.primary500};
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    background-color: pink;
     height: 7rem;
+    border-bottom: 3px solid ${({ theme }) => theme.secondary500};
 `;
 
 const CourseTitle = styled.h1`
-    background-color: red;
+    color: ${({ theme }) => theme.light50};
     display: flex;
     align-items: center;
     text-align: left;
@@ -56,7 +58,8 @@ const CourseTitle = styled.h1`
     font-size: 1.7rem;
 `;
 const CourseSection = styled.h1`
-    background-color: rgb(77, 12, 255);
+    background-color: ${({ theme }) => theme.primary400};
+    color: ${({ theme }) => theme.light50};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -82,6 +85,7 @@ const CardCalendar = styled.div`
 const CourseInfo = styled.div`
     line-height: 1.5rem;
     text-align: right;
+    font-weight: 700;
 `;
 
 export default CourseCard;

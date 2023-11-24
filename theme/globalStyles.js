@@ -9,10 +9,10 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        background: ${({ theme }) => theme.bg2};
-        color: ${({ theme }) => theme.text};
+        background: ${({ theme }) => theme.background50};
+        color: ${({ theme }) => theme.text950};
         a {
-            color: ${({ theme }) => theme.text};
+            color: ${({ theme }) => theme.text950};
         }
         font-family: 'Inter', sans-serif;
         letter-spacing: .1px;

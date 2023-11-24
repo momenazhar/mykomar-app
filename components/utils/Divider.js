@@ -23,7 +23,7 @@ const TitleContainer = styled.div`
 const LineDivider = styled.div`
     flex-grow: 1;
     height: 3px;
-    background-color: black;
+    background-color: ${({ theme }) => theme.text950};
 `;
 
 export default Divider;

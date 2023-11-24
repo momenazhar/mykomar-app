@@ -23,10 +23,12 @@ const CardDay = ({ day, time }) => {
 
 const Day = styled.div`
     width: 3.5rem;
+    outline: 2px solid ${({ theme }) => theme.background200};
+    border-radius: 0.5rem;
+    overflow: hidden;
 `;
 const Header = styled.div`
-    background-color: blue;
-    border-radius: 0.5rem 0.5rem 0 0;
+    background-color: ${({ theme }) => theme.background200};
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -40,15 +42,15 @@ const Header = styled.div`
 const TimeDiv = styled.div``;
 
 const Footer = styled.div`
-    background-color: #80a37d;
+    background-color: ${({ theme }) => theme.accent400};
+    color: ${({ theme }) => theme.light50};
     width: 100%;
-    height: 1.5rem;
-    border-radius: 0 0 0.5rem 0.5rem;
+    height: 1.6rem;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 0.9rem;
-    font-weight: 600;
+    font-weight: 700;
 `;
 
 export default CardDay;

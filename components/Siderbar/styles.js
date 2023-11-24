@@ -4,7 +4,7 @@ import { Link } from "next/link";
 
 export const SSidebar = styled.div`
     width: ${({ isOpen }) => (!isOpen ? `auto` : v.sidebarWidth)};
-    background: ${({ theme }) => theme.bg};
+    background: ${({ theme }) => theme.background100};
     height: 100vh;
     padding: ${v.lgSpacing};
     position: relative;
@@ -34,9 +34,9 @@ export const SSidebarButton = styled.button`
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background: ${({ theme }) => theme.bg};
-    box-shadow: 0 0 4px ${({ theme }) => theme.bg3},
-        0 0 7px ${({ theme }) => theme.bg};
+    background: ${({ theme }) => theme.background100};
+    box-shadow: 0 0 4px ${({ theme }) => theme.background200},
+        0 0 7px ${({ theme }) => theme.background100};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -48,18 +48,18 @@ export const SSidebarButton = styled.button`
 export const SDivider = styled.div`
     height: 1px;
     width: 100%;
-    background: ${({ theme }) => theme.bg3};
+    background: ${({ theme }) => theme.background200};
     margin: ${v.lgSpacing} 0;
 `;
 
 export const SLinkContainer = styled.div`
     background: ${({ theme, isActive }) =>
-        !isActive ? `transparent` : theme.bg3};
+        !isActive ? `transparent` : theme.background200};
     border-radius: ${v.borderRadius};
     margin: 8px 0;
     user-select: none;
     :hover {
-        box-shadow: inset 0 0 0 1px ${({ theme }) => theme.bg3};
+        box-shadow: inset 0 0 0 1px ${({ theme }) => theme.background200};
     }
 `;
 
@@ -102,8 +102,7 @@ export const SThemeToggler = styled.button`
     width: 36px;
     height: 20px;
     border-radius: 10px;
-    background: ${({ theme, isActive }) =>
-        !isActive ? theme.bg3 : theme.primary};
+    background: ${({ theme }) => theme.background200};
 
     position: relative;
 `;
@@ -117,7 +116,7 @@ export const SToggleThumb = styled.div`
     transition: 0.2s ease right;
     right: calc(100% - 18px - 1px);
     border-radius: 50%;
-    background: ${({ theme }) => theme.bg};
+    background: ${({ theme }) => theme.background100};
 `;
 
 export const AccountArea = styled.div`

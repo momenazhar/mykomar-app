@@ -28,7 +28,7 @@ import {
 import { usePathname } from "next/navigation";
 
 import Image from "next/image";
-import Logo from "./../../public/logo.png";
+import Logo from "./../../public/logoFilled.png";
 
 import {
     AiOutlineApartment,
@@ -43,8 +43,6 @@ export const Sidebar = ({ user }) => {
     const { setTheme, theme } = useContext(ThemeContext);
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const { pathname } = usePathname();
-
-    console.log(user);
 
     return (
         <SSidebar isOpen={sidebarOpen}>

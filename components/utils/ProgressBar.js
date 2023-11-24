@@ -6,61 +6,54 @@ const ProgressBar = ({ progressValue }) => {
     let strokeColor;
 
     if (progressValue.type === "gpa") {
-        strokeColor = "red";
+        strokeColor = "#3d36c9";
     } else if (progressValue.type === "courses") {
-        strokeColor = "blue";
+        strokeColor = "#f9b006";
     } else if (progressValue.type === "credits") {
-        strokeColor = "yellow";
+        strokeColor = "#eb1f14";
     } else {
-        strokeColor = "#ac2f2f";
+        strokeColor = "#1d1d1d";
     }
 
-    const IndicationStyle = {
-        cx: "125",
-        cy: "125",
-        r: "72px",
-        fill: "transparent",
-        strokeWidth: "25px",
-        stroke: strokeColor,
-        strokeLinecap: "round",
-        strokeDasharray: "200px",
-        strokeDashoffset: "288.4px",
-    };
+    const percent = progressValue.value / progressValue.total;
+
+    const center = 250 / 2;
+    const trackWidth = 25;
+    const radius = center - 2 * trackWidth - 3;
+    const dashArray = 2 * Math.PI * radius;
+    const dashOffset = dashArray * (1 - percent);
 
     return (
         <MainContainer>
             <ProgressContainer>
-                <InnerTitle>40%</InnerTitle>
-                <svg style={IndicatorStyle}>
-                    <circle style={IndicatorTrackStyle} />
-                    <circle style={IndicationBGStyle} />
-                    <circle style={IndicationStyle} />
-                </svg>
+                <InnerTitle>{(percent * 100).toFixed(0)}%</InnerTitle>
+                <SVGIndicator>
+                    <SVGIndicatorTrack cx={center} cy={center} r={105} />
+                    <SVGIndicatorIndicationBG cx={center} cy={center} r={72} />
+                    <SVGIndicatorIndication
+                        strokeDasharray={dashArray}
+                        strokeDashoffset={dashOffset}
+                        cx={center}
+                        cy={center}
+                        r={radius}
+                        strokeWidth={trackWidth}
+                        stroke={strokeColor}
+                        filter={`drop-shadow(0px 2px 5px ${strokeColor}80)`}
+                    />
+                </SVGIndicator>
             </ProgressContainer>
-            {progressValue.type === "gpa" ? (
-                <h2>Cumulative GPA</h2>
-            ) : progressValue.type === "courses" ? (
-                <h2>Courses Completion</h2>
-            ) : progressValue.type === "credits" ? (
-                <h2>Credits Completion</h2>
-            ) : (
-                <h2>null</h2>
-            )}
-            {progressValue.type === "gpa" ? (
-                <h3>
-                    {progressValue.value} out of {progressValue.total}
-                </h3>
-            ) : progressValue.type === "courses" ? (
-                <h3>
-                    {progressValue.value} out of {progressValue.total}
-                </h3>
-            ) : progressValue.type === "credits" ? (
-                <h3>
-                    {progressValue.value} out of {progressValue.total}
-                </h3>
-            ) : (
-                <h3>null</h3>
-            )}
+            <h2>
+                {progressValue.type === "gpa"
+                    ? "Cumulative GPA"
+                    : progressValue.type === "courses"
+                    ? "Courses Completion"
+                    : progressValue.type === "credits"
+                    ? "Credits Completion"
+                    : ""}
+            </h2>
+            <h3>
+                {progressValue.value} out of {progressValue.total}
+            </h3>
         </MainContainer>
     );
 };
@@ -82,60 +75,26 @@ const InnerTitle = styled.h1`
     position: absolute;
 `;
 
-const IndicatorStyle = {
-    width: "250px",
-    height: "250px",
-};
+const SVGIndicator = styled.svg`
+    width: 250px;
+    height: 250px;
+    transform: rotate(90);
+`;
 
-const IndicatorTrackStyle = {
-    cx: "125",
-    cy: "125",
-    r: "105px",
-    fill: "#b8b8b8",
-};
+const SVGIndicatorTrack = styled.circle`
+    fill: ${({ theme }) => theme.background100};
+`;
 
-const IndicationBGStyle = {
-    cx: "125",
-    cy: "125",
-    r: "72px",
-    fill: "transparent",
-    strokeWidth: "25px",
-    stroke: "#ebebeb",
-    strokeLinecap: "round",
-};
+const SVGIndicatorIndicationBG = styled.circle`
+    fill: transparent;
+    stroke-width: 25px;
+    stroke: ${({ theme }) => theme.background200};
+    stroke-linecap: round;
+`;
 
-// const SVGIndicator = styled.svg`
-//     width: 300px;
-//     height: 300px;
-// `;
-
-// const SVGIndicatorTrack = styled.circle`
-//     cx: 150;
-//     cy: 150;
-//     r: 105px;
-//     fill: #b8b8b8;
-// `;
-
-// const SVGIndicatorIndicationBG = styled.circle`
-//     cx: 150;
-//     cy: 150;
-//     r: 72px;
-//     fill: transparent;
-//     stroke-width: 25px;
-//     stroke: #ebebeb;
-//     stroke-linecap: round;
-// `;
-
-// const SVGIndicatorIndication = styled.circle`
-//     cx: 150;
-//     cy: 150;
-//     r: 72px;
-//     fill: transparent;
-//     stroke-width: 25px;
-//     stroke: #07c;
-//     stroke-linecap: round;
-//     stroke-dasharray: 200px;
-//     stroke-dashoffset: 288.4px;
-// `;
+const SVGIndicatorIndication = styled.circle`
+    fill: transparent;
+    stroke-linecap: round;
+`;
 
 export default ProgressBar;

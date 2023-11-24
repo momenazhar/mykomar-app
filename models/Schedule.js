@@ -1,12 +1,18 @@
 import mongoose, { Schema } from "mongoose";
 
-const Time = { day: String, start: Number, end: Number, room: String };
-
-export const ScheduleSchema = new Schema({
+const ClassSchema = new Schema({
     title: { type: String, required: true },
     section: { type: String, required: true },
     teacher: { type: String, required: true },
-    times: { type: Time, required: true },
+    day: { type: String, require: true },
+    start: { type: String, require: true },
+    end: { type: String, require: true },
+    room: { type: String, require: true },
+});
+
+export const ScheduleSchema = new Schema({
+    semester: { type: String, required: true, index: true, unique: true },
+    classes: { type: [ClassSchema], required: true },
 });
 
 export let Schedule =
