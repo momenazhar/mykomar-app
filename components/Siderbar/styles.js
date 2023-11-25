@@ -58,6 +58,14 @@ export const SDivider = styled.div`
     margin: ${v.lgSpacing} 0;
 `;
 
+export const StyledLink = styled.span`
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 16px;
+    padding: calc(${v.smSpacing} - 2px) 0;
+`;
+
 export const SLinkContainer = styled.div`
     border-radius: ${v.borderRadius};
     margin: 8px 0;

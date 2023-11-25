@@ -1,8 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import styled from "styled-components";
-import { v } from "@/theme/variables";
 import { useContext, useState } from "react";
 import {
     SDivider,
@@ -24,6 +22,7 @@ import {
     AccDivider,
     AccButton,
     LogoOpened,
+    StyledLink,
 } from "./styles";
 import { usePathname } from "next/navigation";
 import { IoLogOut } from "react-icons/io5";
@@ -146,14 +145,6 @@ export const Sidebar = ({ user }) => {
         </SSidebar>
     );
 };
-
-const StyledLink = styled.span`
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    font-size: 16px;
-    padding: calc(${v.smSpacing} - 2px) 0;
-`;
 
 const linksArray = [
     {
