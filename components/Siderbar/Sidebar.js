@@ -38,8 +38,7 @@ import { signOutAction } from "./actions";
 export const Sidebar = ({ user }) => {
     const { setTheme, theme } = useContext(ThemeContext);
     const [sidebarOpen, setSidebarOpen] = useState(true);
-    const { pathname } = usePathname();
-
+    const pathname = usePathname();
     return (
         <SSidebar isOpen={sidebarOpen}>
             <SSidebarButton
@@ -71,7 +70,7 @@ export const Sidebar = ({ user }) => {
                 </LogoContainer>
                 <SDivider />
                 {linksArray.map(({ icon, label, to }) => (
-                    <SLinkContainer key={label} isActive={pathname === to}>
+                    <SLinkContainer key={label} $isActive={pathname === to}>
                         <Link
                             prefetch
                             href={to}
@@ -94,7 +93,6 @@ export const Sidebar = ({ user }) => {
                 <STheme>
                     {sidebarOpen && <SThemeLabel>Dark Mode</SThemeLabel>}
                     <SThemeToggler
-                        isActive={theme === "dark"}
                         onClick={() =>
                             setTheme((p) => (p === "light" ? "dark" : "light"))
                         }

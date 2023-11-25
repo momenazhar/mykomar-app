@@ -46,7 +46,16 @@ export function RegistrationPage({ remainingCourses }) {
                                         key={`${index}-${course.code}`}
                                     >
                                         <p>
-                                            {course.code} {course.title}
+                                            {course.title} -{" "}
+                                            <span
+                                                style={{
+                                                    fontVariantNumeric:
+                                                        "tabular-nums",
+                                                    fontWeight: "300",
+                                                }}
+                                            >
+                                                {course.code}
+                                            </span>
                                         </p>
                                     </CourseModal>
                                 ))}
@@ -106,7 +115,6 @@ const Content = styled(Modal.Content)`
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    color: ${({ theme }) => theme.dark200};
 `;
 
 const Title = styled(Modal.Title)`

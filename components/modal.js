@@ -51,9 +51,9 @@ Modal.Trigger = styled(Dialog.Trigger)`
 
 Modal.Content = styled(Dialog.Content)`
     z-index: 5;
-
-    background-color: white;
-    border-radius: 6px;
+    color: ${({ theme }) => theme.text900};
+    background-color: ${({ theme }) => theme.background100};
+    border-radius: 1.2rem;
     box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
         hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
     position: fixed;

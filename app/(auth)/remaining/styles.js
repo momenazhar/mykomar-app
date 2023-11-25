@@ -18,6 +18,10 @@ export const CardContainer = styled.div`
     padding: 1rem 2rem;
     width: 100%;
     box-shadow: 0px 0px 10px 1px ${({ theme }) => theme.background200};
+    transition: 0.2s;
+    :hover {
+        background-color: ${({ theme }) => theme.background200};
+    }
 `;
 
 export const CourseHeading = styled.div`

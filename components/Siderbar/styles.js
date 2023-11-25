@@ -67,6 +67,8 @@ export const StyledLink = styled.span`
 `;
 
 export const SLinkContainer = styled.div`
+    background-color: ${({ $isActive, theme }) =>
+        $isActive ? theme.background200 : "none"};
     border-radius: ${v.borderRadius};
     margin: 8px 0;
     user-select: none;
