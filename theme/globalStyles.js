@@ -14,8 +14,7 @@ export const GlobalStyle = createGlobalStyle`
         a {
             color: ${({ theme }) => theme.text950};
         }
-        font-family: 'Inter', sans-serif;
-        letter-spacing: .1px;
+        letter-spacing: 0.1px;
     }
 
     input, button {

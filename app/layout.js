@@ -1,12 +1,21 @@
-import { Inter } from "next/font/google";
+import LocalFont from "next/font/local";
 import { Providers } from "./providers";
 import { SLayout } from "./styles";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = LocalFont({
+    src: [
+        { path: "../public/fonts/InterVariable.ttf" },
+        {
+            path: "../public/fonts/InterVariable-Italic.ttf",
+            style: "italic",
+        },
+    ],
+    display: "swap",
+});
 
 export const metadata = {
     title: "MyKomar",
-    description: "Built by Next App",
+    description: "The Student Dashboard of Komar University",
 };
 
 export default async function RootLayout({ children }) {

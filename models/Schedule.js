@@ -16,5 +16,5 @@ export const ScheduleSchema = new Schema({
 });
 
 export let Schedule =
-    global.Schedule || mongoose.model("schedule", ScheduleSchema);
+    global.Schedule || mongoose.model("schedules", ScheduleSchema);
 global.Schedule = Schedule;

@@ -5,6 +5,7 @@ import { ThemeContext } from "@/theme/context";
 import { lightTheme, darkTheme } from "@/theme/colors";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "@/theme/globalStyles";
+import { ConfigProvider } from "antd";
 
 export function Providers({ children }) {
     const [theme, setTheme] = useState("light");
@@ -15,7 +16,7 @@ export function Providers({ children }) {
             <ThemeContext.Provider value={{ setTheme, theme }}>
                 <ThemeProvider theme={themeStyle}>
                     <GlobalStyle />
-                    {children}
+                    <ConfigProvider theme={{}}>{children}</ConfigProvider>
                 </ThemeProvider>
             </ThemeContext.Provider>
         </StyledComponentsRegistry>

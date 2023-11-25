@@ -34,6 +34,7 @@ import { RiFileList3Fill, RiAccountPinBoxFill } from "react-icons/ri";
 import { FaBook, FaUserGraduate } from "react-icons/fa";
 import { MdLibraryAddCheck } from "react-icons/md";
 import { ThemeContext } from "@/theme/context";
+import { signOutAction } from "./actions";
 
 export const Sidebar = ({ user }) => {
     const { setTheme, theme } = useContext(ThemeContext);
@@ -124,10 +125,11 @@ export const Sidebar = ({ user }) => {
                                     <p>{user.department}</p>
                                 </AccSubtitleContainer>
                             </AccInfo>
-
-                            <AccButton>
-                                <IoLogOut />
-                            </AccButton>
+                            <form action={signOutAction}>
+                                <AccButton type="submit">
+                                    <IoLogOut />
+                                </AccButton>
+                            </form>
                         </>
                     ) : (
                         <Image
