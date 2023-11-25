@@ -38,8 +38,6 @@ function useSort() {
 }
 
 export function Table({ classes }) {
-    console.log(classes);
-
     const [page, setPage] = useState(0);
     const [sort, setSort] = useSort("title");
 
@@ -72,22 +70,18 @@ export function Table({ classes }) {
                             >
                                 <InnerCell>Section</InnerCell>
                             </ColumnHeaderCell>
+                            <ColumnHeaderCell onClick={() => setSort("code")}>
+                                <InnerCell>Code</InnerCell>
+                            </ColumnHeaderCell>
                             <ColumnHeaderCell
-                                onClick={() => setSort("teacher")}
+                                onClick={() => setSort("credits")}
                             >
-                                <InnerCell>Teacher</InnerCell>
+                                <InnerCell>Credits</InnerCell>
                             </ColumnHeaderCell>
-                            <ColumnHeaderCell onClick={() => setSort("day")}>
-                                <InnerCell>Day</InnerCell>
-                            </ColumnHeaderCell>
-                            <ColumnHeaderCell onClick={() => setSort("start")}>
-                                <InnerCell>Start</InnerCell>
-                            </ColumnHeaderCell>
-                            <ColumnHeaderCell onClick={() => setSort("end")}>
-                                <InnerCell>End</InnerCell>
-                            </ColumnHeaderCell>
-                            <ColumnHeaderCell onClick={() => setSort("room")}>
-                                <InnerCell>Room</InnerCell>
+                            <ColumnHeaderCell
+                                onClick={() => setSort("credits")}
+                            >
+                                <InnerCell>Status</InnerCell>
                             </ColumnHeaderCell>
                         </RadixTable.Row>
                     </Header>
@@ -103,19 +97,13 @@ export function Table({ classes }) {
                                     <InnerCell>{course.section}</InnerCell>
                                 </Cell>
                                 <Cell>
-                                    <InnerCell>{course.teacher}</InnerCell>
+                                    <InnerCell>{course.code}</InnerCell>
                                 </Cell>
                                 <Cell>
-                                    <InnerCell>{course.day}</InnerCell>
+                                    <InnerCell>{course.credits}</InnerCell>
                                 </Cell>
                                 <Cell>
-                                    <InnerCell>{course.start}</InnerCell>
-                                </Cell>
-                                <Cell>
-                                    <InnerCell>{course.end}</InnerCell>
-                                </Cell>
-                                <Cell>
-                                    <InnerCell>{course.room}</InnerCell>
+                                    <InnerCell>{course.status}</InnerCell>
                                 </Cell>
                             </Row>
                         ))}
