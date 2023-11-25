@@ -59,8 +59,6 @@ export const SDivider = styled.div`
 `;
 
 export const SLinkContainer = styled.div`
-    background: ${({ theme, isActive }) =>
-        !isActive ? `transparent` : theme.background200};
     border-radius: ${v.borderRadius};
     margin: 8px 0;
     user-select: none;
