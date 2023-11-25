@@ -1,6 +1,6 @@
 # MyKomar Web Application
 
-This application was built using [Next.js](https://nextjs.org/) with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app), [React.js](https://react.dev/), [MongoDB](https://www.mongodb.com/), [Vercel](https://vercel.com/), and [Styled Components](https://styled-components.com/).
+This application was built using [Next.js](https://nextjs.org/) with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app), [React.js](https://react.dev/), [MongoDB](https://www.mongodb.com/), [Google OAuth](https://console.cloud.google.com/), [Vercel](https://vercel.com/), and [Styled Components](https://styled-components.com/).
 
 ## Getting Started
 
