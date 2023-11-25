@@ -10,7 +10,7 @@ import {
 } from "react-icons/tb";
 import styled from "styled-components";
 
-const pageSize = 20;
+const pageSize = 19;
 
 const alphabeticalSort = (a, b) => a.localeCompare(b);
 
@@ -38,8 +38,6 @@ function useSort() {
 }
 
 export function Table({ classes }) {
-    console.log(classes);
-
     const [page, setPage] = useState(0);
     const [sort, setSort] = useSort("title");
 

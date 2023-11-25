@@ -44,14 +44,20 @@ export default async function Progress() {
                     ...user.currentCourses.map((c) => ({
                         ...c,
                         status: "Current",
+                        prefinal: "",
+                        gradeLetter: "",
                     })),
                     ...user.finishedCourses.map((c) => ({
                         ...c,
                         status: "Passed",
+                        section: "",
                     })),
                     ...user.remainingCourses.map((c) => ({
                         ...c,
                         status: "Remaining",
+                        section: "",
+                        prefinal: "",
+                        gradeLetter: "",
                     })),
                 ]}
             />

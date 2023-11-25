@@ -65,8 +65,6 @@ Modal.Content = styled(Dialog.Content)`
     max-height: 85vh;
     padding: 25px;
     animation: ${contentShow} 150ms cubic-bezier(0.16, 1, 0.3, 1);
-    filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.2));
-    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
 
     &:focus {
         outline: none;

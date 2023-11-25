@@ -2,26 +2,19 @@
 
 import { useState, useMemo } from "react";
 import { Table as RadixTable } from "@radix-ui/themes";
-import {
-    TbChevronRight,
-    TbChevronLeft,
-    TbChevronsLeft,
-    TbChevronsRight,
-} from "react-icons/tb";
 import styled from "styled-components";
 
-const pageSize = 20;
-
 const alphabeticalSort = (a, b) => a.localeCompare(b);
+const numericalSort = (a, b) => a - b;
 
 const sortFns = {
     title: (a, b) => alphabeticalSort(a.title, b.title),
     section: (a, b) => alphabeticalSort(a.section, b.section),
-    teacher: (a, b) => alphabeticalSort(a.teacher, b.teacher),
-    day: (a, b) => alphabeticalSort(a.day, b.day),
-    start: (a, b) => alphabeticalSort(a.start, b.start),
-    end: (a, b) => alphabeticalSort(a.end, b.end),
-    room: (a, b) => alphabeticalSort(a.room, b.room),
+    code: (a, b) => alphabeticalSort(a.code, b.code),
+    credits: (a, b) => numericalSort(a.credits, b.credits),
+    status: (a, b) => alphabeticalSort(a.status, b.status),
+    prefinal: (a, b) => numericalSort(a.prefinal, b.prefinal),
+    grade: (a, b) => alphabeticalSort(a.gradeLetter, b.gradeLetter),
 };
 
 function useSort() {
@@ -38,10 +31,7 @@ function useSort() {
 }
 
 export function Table({ classes }) {
-    const [page, setPage] = useState(0);
     const [sort, setSort] = useSort("title");
-
-    const maxPage = Math.ceil(classes.length / pageSize) - 1;
 
     const sortedClasses = useMemo(() => {
         const sortFn = sort.reverse
@@ -51,92 +41,78 @@ export function Table({ classes }) {
         return [...classes].sort(sortFn);
     }, [classes, sort]);
 
-    const currentClasses = useMemo(
-        () => sortedClasses.slice(page * pageSize, (page + 1) * pageSize),
-        [page, sortedClasses]
-    );
-
     return (
-        <>
-            <Container>
-                <RadixTable.Root>
-                    <Header>
-                        <RadixTable.Row>
-                            <ColumnHeaderCell onClick={() => setSort("title")}>
-                                <InnerCell>Title</InnerCell>
-                            </ColumnHeaderCell>
-                            <ColumnHeaderCell
-                                onClick={() => setSort("section")}
-                            >
-                                <InnerCell>Section</InnerCell>
-                            </ColumnHeaderCell>
-                            <ColumnHeaderCell onClick={() => setSort("code")}>
-                                <InnerCell>Code</InnerCell>
-                            </ColumnHeaderCell>
-                            <ColumnHeaderCell
-                                onClick={() => setSort("credits")}
-                            >
-                                <InnerCell>Credits</InnerCell>
-                            </ColumnHeaderCell>
-                            <ColumnHeaderCell
-                                onClick={() => setSort("credits")}
-                            >
-                                <InnerCell>Status</InnerCell>
-                            </ColumnHeaderCell>
-                        </RadixTable.Row>
-                    </Header>
-                    <Body>
-                        {currentClasses.map((course, index) => (
-                            <Row
-                                key={`${course.title}+${course.section}+${page}+${index}`}
-                            >
-                                <Cell>
-                                    <InnerCell>{course.title}</InnerCell>
-                                </Cell>
-                                <Cell>
-                                    <InnerCell>{course.section}</InnerCell>
-                                </Cell>
-                                <Cell>
-                                    <InnerCell>{course.code}</InnerCell>
-                                </Cell>
-                                <Cell>
-                                    <InnerCell>{course.credits}</InnerCell>
-                                </Cell>
-                                <Cell>
-                                    <InnerCell>{course.status}</InnerCell>
-                                </Cell>
-                            </Row>
-                        ))}
-                    </Body>
-                </RadixTable.Root>
-            </Container>
-            <PageSwitcherContainer>
-                <PageButton onClick={() => setPage(0)}>
-                    <TbChevronsLeft />
-                </PageButton>
-                <PageButton onClick={() => setPage(!page ? maxPage : page - 1)}>
-                    <TbChevronLeft />
-                </PageButton>
-                <PageP>
-                    {page + 1} / {maxPage + 1}
-                </PageP>
-                <PageButton
-                    onClick={() => setPage(page === maxPage ? 0 : page + 1)}
-                >
-                    <TbChevronRight />
-                </PageButton>
-                <PageButton onClick={() => setPage(maxPage)}>
-                    <TbChevronsRight />
-                </PageButton>
-            </PageSwitcherContainer>
-        </>
+        <Container>
+            <Root>
+                <Header>
+                    <RadixTable.Row>
+                        <ColumnHeaderCell onClick={() => setSort("title")}>
+                            <InnerCell>Title</InnerCell>
+                        </ColumnHeaderCell>
+                        <ColumnHeaderCell onClick={() => setSort("section")}>
+                            <InnerCell>Section</InnerCell>
+                        </ColumnHeaderCell>
+                        <ColumnHeaderCell onClick={() => setSort("code")}>
+                            <InnerCell>Code</InnerCell>
+                        </ColumnHeaderCell>
+                        <ColumnHeaderCell onClick={() => setSort("credits")}>
+                            <InnerCell>Credits</InnerCell>
+                        </ColumnHeaderCell>
+                        <ColumnHeaderCell onClick={() => setSort("status")}>
+                            <InnerCell>Status</InnerCell>
+                        </ColumnHeaderCell>
+                        <ColumnHeaderCell onClick={() => setSort("prefinal")}>
+                            <InnerCell>Prefinal</InnerCell>
+                        </ColumnHeaderCell>
+                        <ColumnHeaderCell onClick={() => setSort("grade")}>
+                            <InnerCell>Grade</InnerCell>
+                        </ColumnHeaderCell>
+                    </RadixTable.Row>
+                </Header>
+                <Body>
+                    {sortedClasses.map((course, index) => (
+                        <Row key={`${course.title}+${course.section}+${index}`}>
+                            <Cell>
+                                <InnerCell>{course.title}</InnerCell>
+                            </Cell>
+                            <Cell>
+                                <InnerCell>{course.section}</InnerCell>
+                            </Cell>
+                            <Cell>
+                                <InnerCell>{course.code}</InnerCell>
+                            </Cell>
+                            <Cell>
+                                <InnerCell>{course.credits}</InnerCell>
+                            </Cell>
+                            <Cell>
+                                <InnerCell>{course.status}</InnerCell>
+                            </Cell>
+                            <Cell>
+                                <InnerCell>{course.prefinal}</InnerCell>
+                            </Cell>
+                            <Cell>
+                                <InnerCell>{course.gradeLetter}</InnerCell>
+                            </Cell>
+                        </Row>
+                    ))}
+                </Body>
+            </Root>
+        </Container>
     );
 }
 
+const Root = styled(RadixTable.Root)`
+    position: relative;
+`;
+
 const Container = styled.div`
     border-radius: 1rem;
-    overflow: hidden;
+    overflow: scroll;
+    height: 27rem;
     outline: 1px solid ${({ theme }) => theme.background200};
+    ::-webkit-scrollbar {
+        display: none;
+    }
 `;
 
 const Header = styled(RadixTable.Header)`
@@ -168,6 +144,8 @@ const InnerCell = styled.div`
 `;
 
 const ColumnHeaderCell = styled(RadixTable.ColumnHeaderCell)`
+    position: sticky;
+    top: 0;
     border-bottom: 2px solid ${({ theme }) => theme.background300};
     color: ${({ theme }) => theme.text950};
     transition: 0.25s;
@@ -177,44 +155,4 @@ const ColumnHeaderCell = styled(RadixTable.ColumnHeaderCell)`
         border-bottom: 2px solid ${({ theme }) => theme.background400};
         box-sizing: border-box;
     }
-`;
-
-const PageSwitcherContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    padding: 1rem;
-    gap: 1rem;
-`;
-
-const PageButton = styled.button`
-    padding: 0.5rem;
-    background-color: ${({ theme }) => theme.background100};
-    border-radius: 0.8rem;
-    outline: 1px solid ${({ theme }) => theme.background50};
-    outline-offset: -2px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: 0.2s;
-    svg {
-        width: 20px;
-        height: 20px;
-    }
-    :hover {
-        background-color: ${({ theme }) => theme.background200};
-        outline: 1px solid ${({ theme }) => theme.background100};
-    }
-`;
-
-const PageP = styled.p`
-    outline: 1px solid ${({ theme }) => theme.background50};
-    outline-offset: -2px;
-    padding: 0.5rem;
-    text-align: center;
-    width: 5rem;
-    border-radius: 0.8rem;
-    background-color: ${({ theme }) => theme.background100};
-    user-select: none;
 `;

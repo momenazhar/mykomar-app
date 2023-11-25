@@ -11,6 +11,9 @@ export const SLayout = styled.div`
 export const SMain = styled.main`
     padding: calc(${v.smSpacing} * 4);
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 `;
 
 export const SMainLogin = styled.main`

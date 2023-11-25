@@ -13,8 +13,11 @@ import {
     CourseList,
     Close,
     Save,
+    CourseModalList,
+    CourseModal,
 } from "./styles";
-import { BsListNested } from "react-icons/bs";
+import styled from "styled-components";
+import { FaCartShopping } from "react-icons/fa6";
 
 export function RegistrationPage({ remainingCourses }) {
     const [selected, setSelected] = useState([]);
@@ -25,65 +28,35 @@ export function RegistrationPage({ remainingCourses }) {
             <Divider title="Eligible Courses">
                 <Modal isOpen={isOpen} setOpen={setOpen}>
                     <Modal.Trigger asChild>
-                        <List onClick={() => setOpen(true)}>
-                            <BsListNested />
-                        </List>
-                    </Modal.Trigger>
-                    <Modal.Portal>
-                        <Modal.Overlay />
-                        <Modal.Content>
-                            <Modal.Title>Wishlist</Modal.Title>
-                            <Modal.Description>
-                                Your selected courses are:
-                            </Modal.Description>
-                            <div>
-                                {selected.map((course, index) => (
-                                    <div key={`${index}-${course.code}`}>
-                                        <p>
-                                            {course.code} {course.title}
-                                        </p>
-                                    </div>
-                                ))}
-                            </div>
-                            <div
-                                style={{
-                                    display: "flex",
-                                    flexDirection: "row",
-                                }}
-                            >
-                                <Modal.Close asChild>
-                                    <Close onClick={() => setOpen(false)}>
-                                        Close
-                                    </Close>
-                                </Modal.Close>
-                            </div>
-                        </Modal.Content>
-                    </Modal.Portal>
-                </Modal>
-                <Modal isOpen={isOpen} setOpen={setOpen}>
-                    <Modal.Trigger asChild>
                         <Enroll onClick={() => setOpen(true)}>Enroll</Enroll>
                     </Modal.Trigger>
                     <Modal.Portal>
                         <Modal.Overlay />
-                        <Modal.Content>
-                            <Modal.Title>Wishlist</Modal.Title>
-                            <Modal.Description>
+                        <Content>
+                            <Title>
+                                <FaCartShopping />
+                                Wishlist
+                            </Title>
+                            <Description>
                                 You will be enrolled in the following courses:
-                            </Modal.Description>
-                            <div>
+                            </Description>
+                            <CourseModalList>
                                 {selected.map((course, index) => (
-                                    <div key={`${index}-${course.code}`}>
+                                    <CourseModal
+                                        key={`${index}-${course.code}`}
+                                    >
                                         <p>
                                             {course.code} {course.title}
                                         </p>
-                                    </div>
+                                    </CourseModal>
                                 ))}
-                            </div>
+                            </CourseModalList>
                             <div
                                 style={{
                                     display: "flex",
                                     flexDirection: "row",
+                                    gap: "1rem",
+                                    justifyContent: "end",
                                 }}
                             >
                                 <Modal.Close asChild>
@@ -97,7 +70,7 @@ export function RegistrationPage({ remainingCourses }) {
                                     </Save>
                                 </Modal.Close>
                             </div>
-                        </Modal.Content>
+                        </Content>
                     </Modal.Portal>
                 </Modal>
             </Divider>
@@ -124,3 +97,25 @@ export function RegistrationPage({ remainingCourses }) {
         </>
     );
 }
+
+const Description = styled(Modal.Description)`
+    font-size: 1.2rem;
+`;
+
+const Content = styled(Modal.Content)`
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: ${({ theme }) => theme.dark200};
+`;
+
+const Title = styled(Modal.Title)`
+    font-size: 1.6rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    svg {
+        margin-top: 2px;
+    }
+`;
